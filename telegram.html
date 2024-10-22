@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In to Telegram</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f4f7;
+        }
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+        .logo img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        select:focus, input:focus {
+            border-color: #0088cc;
+            outline: none;
+        }
+        button {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #006ea3;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Căn giữa cả checkbox và nhãn */
+            margin-bottom: 20px;
+        }
+        .checkbox-container input {
+            margin-right: 10px; /* Đặt khoảng cách giữa checkbox và nhãn */
+        }
+        .checkbox-container label {
+            font-size: 14px;
+            color: #555;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://telegram.org/img/t_logo.png" alt="Telegram Logo">
+        </div>
+        <h1>Sign In to Telegram</h1>
+        <p>Please confirm your country code and enter your phone number.</p>
+        <select id="country" onchange="updatePhoneCode()">
+            <option value="+84" selected>Vietnam (+84)</option>
+            <option value="+1">United States (+1)</option>
+            <option value="+44">United Kingdom (+44)</option>
+            <option value="+61">Australia (+61)</option>
+            <option value="+81">Japan (+81)</option>
+            <option value="+33">France (+33)</option>
+            <option value="+49">Germany (+49)</option>
+            <option value="+91">India (+91)</option>
+            <option value="+86">China (+86)</option>
+            <option value="+65">Singapore (+65)</option>
+            <!-- Add more countries here -->
+        </select>
+        <input id="phone" type="text" placeholder="Phone Number" required>
+        <div class="checkbox-container">
+            <input type="checkbox" checked>
+            <label>Keep me signed in</label>
+        </div>
+        <button type="button">Next</button>
+    </div>
+
+    <script>
+        function updatePhoneCode() {
+            var countryCode = document.getElementById("country").value;
+            document.getElementById("phone").value = countryCode;
+        }
+    </script>
+</body>
+</html>
